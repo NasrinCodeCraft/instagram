@@ -7,7 +7,7 @@ import {
   HeartIcon,
 } from "@heroicons/react/24/outline";
 
-import { HomeIcon, QueueListIcon } from "@heroicons/react/16/solid";
+import { HomeIcon, Bars3Icon } from "@heroicons/react/16/solid";
 
 
 function Header() {
@@ -43,7 +43,7 @@ function Header() {
           {/* right - icons */}
           <div className="flex items-center justify-end space-x-4">
             <HomeIcon className="navBtn"/>
-            <QueueListIcon className="w-6 h-6 md:hidden cursor-pointer" />
+            <Bars3Icon className="w-6 h-6 md:hidden cursor-pointer" />
             <div className="navBtn relative">
               <PaperAirplaneIcon className="navBtn -rotate-45"/>
               <div className="absolute -top-2 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
