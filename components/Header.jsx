@@ -1,4 +1,9 @@
+"use client"
+
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation'
+
 import {
   MagnifyingGlassIcon,
   PaperAirplaneIcon,
@@ -11,6 +16,10 @@ import { HomeIcon, Bars3Icon } from "@heroicons/react/16/solid";
 
 
 function Header() {
+
+  const router = useRouter()
+  const {data:session} = useSession()
+
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50">
       <div className="flex items-center justify-between mx-5 xl:mx-auto max-w-6xl">
@@ -44,14 +53,21 @@ function Header() {
           <div className="flex items-center justify-end space-x-4">
             <HomeIcon className="navBtn"/>
             <Bars3Icon className="w-6 h-6 md:hidden cursor-pointer" />
-            <div className="navBtn relative">
-              <PaperAirplaneIcon className="navBtn -rotate-45"/>
-              <div className="absolute -top-2 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
-            </div>
-            <PlusCircleIcon className="navBtn"/>
-            <UserGroupIcon className="navBtn"/>
-            <HeartIcon className="navBtn"/>
-            <img src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button.png" alt="profile pic" className="h-10 rounded-full w-10 cursor-pointer"/>
+
+            {session? (
+              <>
+                <div className="navBtn relative">
+                  <PaperAirplaneIcon className="navBtn -rotate-45"/>
+                  <div className="absolute -top-2 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
+                </div>
+                <PlusCircleIcon className="navBtn"/>
+                <UserGroupIcon className="navBtn"/>
+                <HeartIcon className="navBtn"/>
+                <img src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button.png" alt="profile pic" className="h-10 rounded-full w-10 cursor-pointer"/>
+              </>
+            ):(
+<button onClick={() => router.push('/auth/signIn')}>Sign In</button>
+            )}
           </div>
       </div>
     </div>
