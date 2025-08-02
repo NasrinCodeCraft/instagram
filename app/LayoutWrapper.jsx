@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
-  const isAuthPage = pathname === "/auth/signIn";
+  const isAuthPage = pathname.startsWith("/auth");
 
   return (
     <>

@@ -54,8 +54,8 @@ function Header() {
             <HomeIcon className="navBtn"/>
             <Bars3Icon className="w-6 h-6 md:hidden cursor-pointer" />
 
-            {session? (
-              <>
+            {/*{session? (*/}
+            {/*  <>*/}
                 <div className="navBtn relative">
                   <PaperAirplaneIcon className="navBtn -rotate-45"/>
                   <div className="absolute -top-2 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
@@ -64,10 +64,10 @@ function Header() {
                 <UserGroupIcon className="navBtn"/>
                 <HeartIcon className="navBtn"/>
                 <img src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button.png" alt="profile pic" className="h-10 rounded-full w-10 cursor-pointer"/>
-              </>
-            ):(
-<button onClick={() => router.push('/auth/signIn')}>Sign In</button>
-            )}
+              {/*</>*/}
+{/*            ):(*/}
+{/*<button onClick={() => router.push('/auth/signIn')}>Sign In</button>*/}
+{/*            )}*/}
           </div>
       </div>
     </div>
