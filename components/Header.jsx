@@ -13,12 +13,15 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { HomeIcon, Bars3Icon } from "@heroicons/react/16/solid";
+import React, {useState} from "react";
+import Modal from "@/components/Modal";
 
 
 function Header() {
 
   const router = useRouter()
   const {data:session} = useSession()
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50">
@@ -60,7 +63,11 @@ function Header() {
                   <PaperAirplaneIcon className="navBtn -rotate-45"/>
                   <div className="absolute -top-2 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</div>
                 </div>
-                <PlusCircleIcon className="navBtn"/>
+                <PlusCircleIcon className="navBtn" onClick={() => setIsModalOpen(true)}/>
+                <Modal
+                  open={isModalOpen}
+                  onClose={() => setIsModalOpen(false)}
+                />
                 <UserGroupIcon className="navBtn"/>
                 <HeartIcon className="navBtn"/>
                 <img src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button.png" alt="profile pic" className="h-10 rounded-full w-10 cursor-pointer"/>
